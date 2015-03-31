@@ -1,0 +1,47 @@
+---
+- name: Install base OS X packages
+  homebrew:
+    name: "{{item}}"
+    update_homebrew: yes
+    upgrade_all: yes
+    state: latest
+  with_items:
+    - qt
+    - curl
+    - sqlite3
+    - phantomjs
+    - wget
+
+- name: Install base OS X apps
+  homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - skype
+    - transmit
+    - evernote
+    - google-chrome
+    - dropbox
+    - skitch
+    - omnifocus
+    - transmission
+    - sublime-text
+    - hyperdock
+    - intellij-idea-ce
+    - battle-net
+    - sequel-pro
+    - vlc
+    - heroku-toolbelt
+    - postgres
+    - beamer
+    - java
+    - flowdock
+    - ynab
+    - seil
+    - flux
+    - sabnzbd
+    - pgadmin3
+    - cloak
+
+- name: Install RVM
+  shell: "curl -sSL https://get.rvm.io | bash"

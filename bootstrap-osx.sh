@@ -1,4 +1,4 @@
-et -e
+set -e
 
 . lib-ui.sh
 . lib-misc.sh

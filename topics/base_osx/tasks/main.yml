@@ -11,6 +11,7 @@
     - sqlite3
     - phantomjs
     - wget
+    - cask
 
 - name: Install base OS X apps
   homebrew_cask:

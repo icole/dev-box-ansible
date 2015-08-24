@@ -4,4 +4,4 @@
     downloads_directory: /{{ home_directory }}/.ansible.tmp/downloads
   roles:
     - base_osx
-    - emacs
+    - emacs    

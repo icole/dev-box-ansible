@@ -12,8 +12,7 @@ mkdir -p $CONFIG_DIRECTORY
 mkdir -p $ANSIBLE_CONFIGURATION_DIRECTORY/{roles,downloads}
 
 cp -R ansible/* $ANSIBLE_CONFIGURATION_DIRECTORY
-cp -R topics/* $ANSIBLE_CONFIGURATION_DIRECTORY/roles/
 
-ansible-playbook -i $ANSIBLE_CONFIGURATION_DIRECTORY/inventories/osx $ANSIBLE_CONFIGURATION_DIRECTORY/osx.yml --connection=local
+ansible-playbook -i $ANSIBLE_CONFIGURATION_DIRECTORY/inventories/osx $ANSIBLE_CONFIGURATION_DIRECTORY/setup.yml --connection=local
 
 brew linkapps

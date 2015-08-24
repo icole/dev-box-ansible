@@ -14,7 +14,6 @@
     upgrade_all: yes
 
 - name: Copy emacs.d
-  copy: > 
-    src=emacs.d/
+  git:
+    repo=git://github.com/icole/emacs.git
     dest=~/.emacs.d
-    mode=644

@@ -15,5 +15,10 @@
 
 - name: Copy emacs.d
   git:
-    repo=git://github.com/icole/emacs.git
+    repo=ssh://git@github.com/icole/emacs.git
     dest=~/.emacs.d
+
+- name: Cask install dependencies
+  shell: cask install
+  args:
+    chdir: ~/.emacs.d

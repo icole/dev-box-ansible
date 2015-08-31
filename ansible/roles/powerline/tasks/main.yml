@@ -1,0 +1,9 @@
+---
+- name: Install Powerline
+  shell: pip install powerline-status
+
+- name: Configure Powerline
+  shell: cp -r {{ pip_directory }}/powerline/config_files ~/.config/powerline
+
+- name: Configure Tmux Powerline
+  shell: echo 'source "{{ pip_directory }}/powerline/bindings/tmux/powerline.conf"' >> ~/.tmux.conf

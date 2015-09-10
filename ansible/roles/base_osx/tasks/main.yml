@@ -13,6 +13,7 @@
     - wget
     - cask
     - emacs
+    - npm
 
 - name: Install base OS X apps
   homebrew_cask:
@@ -39,3 +40,13 @@
     - pgadmin3
     - vagrant
     - ngrok
+
+- name: Install python packages
+  pip: requirements=~/Workspace/dotfiles/ansible/roles/base_osx/files/requirements.txt
+
+- name: Install npm packages
+  npm: name=yo global=yes
+  npm: name=bower global=yes
+  npm: name=gulp global=yes
+  npm: name=generator-karma global-yes
+  npm: name=generator-angular global=yes

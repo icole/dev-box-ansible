@@ -40,6 +40,7 @@
     - pgadmin3
     - vagrant
     - ngrok
+    - textexpander
 
 - name: Install python packages
   pip: requirements=~/Workspace/dotfiles/ansible/roles/base_osx/files/requirements.txt
@@ -50,3 +51,5 @@
   npm: name=gulp global=yes
   npm: name=generator-karma global-yes
   npm: name=generator-angular global=yes
+
+

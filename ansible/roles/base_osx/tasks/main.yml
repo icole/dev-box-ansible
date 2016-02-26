@@ -42,6 +42,9 @@
     - ngrok
     - textexpander
 
+- name: Link homebrew applications
+  shell: brew linkapps
+
 - name: Install python packages
   pip: requirements=~/Workspace/dotfiles/ansible/roles/base_osx/files/requirements.txt
 
@@ -52,4 +55,5 @@
   npm: name=generator-karma global-yes
   npm: name=generator-angular global=yes
 
-
+- name: Copy tmux configurations
+  copy: src=../files/.tmux.conf dest=~/.tmux.conf

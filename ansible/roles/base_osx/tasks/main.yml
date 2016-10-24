@@ -6,7 +6,6 @@
     upgrade_all: yes
     state: latest
   with_items:
-    - qt
     - curl
     - sqlite3
     - phantomjs
@@ -14,6 +13,8 @@
     - cask
     - emacs
     - npm
+    - vim
+    - macvim
 
 - name: Install base OS X apps
   homebrew_cask:
@@ -27,11 +28,9 @@
     - dropbox
     - skitch
     - omnifocus
-    - sublime-text
     - hyperdock
-    - intellij-idea-ce
+    - intellij-idea
     - sequel-pro
-    - heroku-toolbelt
     - postgres
     - java
     - flowdock
@@ -41,6 +40,8 @@
     - vagrant
     - ngrok
     - textexpander
+    - slack
+    - eclipse-ide
 
 - name: Link homebrew applications
   shell: brew linkapps
@@ -57,3 +58,6 @@
 
 - name: Copy tmux configurations
   copy: src=../files/.tmux.conf dest=~/.tmux.conf
+
+- name: Install VIM Janus
+  shell: curl -L https://bit.ly/janus-bootstrap | bash

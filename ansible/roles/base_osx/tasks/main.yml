@@ -34,7 +34,6 @@
     - postgres
     - java
     - flowdock
-    - seil
     - flux
     - pgadmin3
     - vagrant
@@ -61,3 +60,9 @@
 
 - name: Install VIM Janus
   shell: curl -L https://bit.ly/janus-bootstrap | bash
+
+- name: Initialize AppleScripts directory
+  file: path="~/Workspace/AppleScripts" type="directory"
+
+- name: Copy iTunes current track script
+  copy: src=../files/itunes-current-track-tmux.sh dest=~/Workspace/AppleScripts

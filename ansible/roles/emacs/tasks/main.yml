@@ -8,15 +8,19 @@
 
 - name: Install Emacs
   homebrew:
-    name: emacs-mac
+    name: "{{item}}"
     state: latest
     update_homebrew: yes
     upgrade_all: yes
+  with_items:
+    - emacs-mac
+    - emacs
 
 - name: Copy emacs.d
-  git:
-    repo=ssh://git@github.com/icole/emacs.git
+  file:
+    src=emacs.d
     dest=~/.emacs.d
+    state="link"
 
 - name: Cask install dependencies
   shell: cask install

@@ -9,12 +9,9 @@
     - curl
     - sqlite3
     - phantomjs
-    - wget
     - cask
-    - emacs
+    - wget
     - npm
-    - vim
-    - macvim
 
 - name: Install base OS X apps
   homebrew_cask:
@@ -41,6 +38,7 @@
     - textexpander
     - slack
     - eclipse-ide
+    - anylist
 
 - name: Link homebrew applications
   shell: brew linkapps
@@ -49,20 +47,10 @@
   pip: requirements=~/Workspace/dotfiles/ansible/roles/base_osx/files/requirements.txt
 
 - name: Install npm packages
-  npm: name=yo global=yes
-  npm: name=bower global=yes
-  npm: name=gulp global=yes
-  npm: name=generator-karma global-yes
-  npm: name=generator-angular global=yes
-
-- name: Copy tmux configurations
-  copy: src=../files/.tmux.conf dest=~/.tmux.conf
-
-- name: Install VIM Janus
-  shell: curl -L https://bit.ly/janus-bootstrap | bash
-
-- name: Initialize AppleScripts directory
-  file: path="~/Workspace/AppleScripts" type="directory"
-
-- name: Copy iTunes current track script
-  copy: src=../files/itunes-current-track-tmux.sh dest=~/Workspace/AppleScripts
+  npm: name="{{item}}" global=yes
+  with_items:
+    - yo
+    - bower
+    - gulp
+    - generator-angular
+    - generator-karma

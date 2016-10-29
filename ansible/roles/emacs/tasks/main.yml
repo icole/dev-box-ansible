@@ -18,7 +18,7 @@
 
 - name: Copy emacs.d
   file:
-    src=emacs.d
+    src={{ playbook_dir}}/roles/emacs/files/emacs.d
     dest=~/.emacs.d
     state="link"
 

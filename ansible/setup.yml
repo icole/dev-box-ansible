@@ -1,7 +1,6 @@
 - hosts: all
-  vars:
-    home_directory: /Users/{{ ansible_user_id }}
-    downloads_directory: /{{ home_directory }}/.ansible.tmp/downloads
   roles:
     - base_osx
     - emacs
+    - vim
+    - tmux

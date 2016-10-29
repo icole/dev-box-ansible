@@ -21,7 +21,6 @@
 (depends-on "f")
 (depends-on "faceup")
 (depends-on "feature-mode")
-(depends-on "git-blame")
 (depends-on "git-gutter")
 (depends-on "grizzl")
 (depends-on "haml-mode")

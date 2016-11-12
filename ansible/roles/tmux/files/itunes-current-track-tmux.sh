@@ -18,5 +18,5 @@ on appIsRunning(appName)
 end appIsRunning
 EOF)
 
-    echo '#[bg=colour137,fg=colour16,bold] ♫' $ITUNES_TRACK '#[nobold]-#[bold]' $ITUNES_ARTIST '#[fg=colour254,bg=colour137,nobold]'
+    echo '#[fg=brightblue] ♫' $ITUNES_TRACK '-' $ITUNES_ARTIST
 fi

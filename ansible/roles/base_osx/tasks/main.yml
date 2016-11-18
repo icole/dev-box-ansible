@@ -12,6 +12,7 @@
     - cask
     - wget
     - npm
+    - memcached
 
 - name: Install base OS X apps
   homebrew_cask:
@@ -27,6 +28,7 @@
     - omnifocus
     - hyperdock
     - intellij-idea
+    - rubymine
     - sequel-pro
     - postgres
     - java

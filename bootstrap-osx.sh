@@ -44,14 +44,6 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
 	brew install ansible
 fi
 
-if [ ! "$SHELL" == "/usr/local/bin/zsh" ]; then
-	info "Switching from bash to zsh...\n"
-	command -v zsh | sudo tee -a /etc/shells
-	chsh -s /usr/local/bin/zsh
-	success "Done\n"
-	info "You will need to add /usr/local/bin/zsh to the list of shells in System Preferences\n"
-fi
-
 if ! (brew list -1 | grep -q "^brew-cask$"); then
 	info "Installing brew cask...\n"
 	brew install caskroom/cask/brew-cask
@@ -63,3 +55,9 @@ if ! (brew tap | grep -q "^homebrew/versions"); then
 fi
 
 success "Bootstrapping is complete\n"
+
+if [ ! "$SHELL" == "/usr/local/bin/zsh" ]; then
+        info "Switching to Oh-My-Zsh"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+

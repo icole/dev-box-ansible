@@ -30,9 +30,6 @@
 (add-hook 'after-make-frame-functions 'my-frame-config)
 
 ;; MAIN Configs
-(nyan-mode)
-(setq nyan-wavy-trail t)
-(nyan-start-animation)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)

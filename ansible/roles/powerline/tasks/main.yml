@@ -4,3 +4,8 @@
 
 - name: Configure Powerline
   shell: cp -r {{ pip_directory }}/powerline/config_files ~/.config/powerline
+
+- name: Copy tmux theme
+  copy:
+    src={{ playbook_dir}}/roles/powerline/files/tmux.json
+    dest=~/.config/powerline/themes/tmux/default.json

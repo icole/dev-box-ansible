@@ -17,6 +17,7 @@
     - imagemagick
     - elasticsearch17
     - python3
+    - mongo
 
 - name: Install base OS X apps
   homebrew_cask:

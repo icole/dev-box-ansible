@@ -53,18 +53,3 @@
 
 - name: Link homebrew applications
   shell: brew linkapps
-
-- name: Install python packages
-  pip: requirements=~/Workspace/dotfiles/ansible/roles/base_osx/files/requirements.txt
-
-- name: Install npm packages
-  npm: name="{{item}}" global=yes
-  with_items:
-    - yo
-    - bower
-    - gulp
-    - generator-angular
-    - generator-karma
-
-- name: Install RVM
-  shell: curl -sSL https://get.rvm.io | bash -s stable

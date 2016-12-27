@@ -1,0 +1,9 @@
+---
+- name: Download Atom editor
+  get_url:
+    url: https://atom.io/download/deb
+    dest: /tmp/atom.deb
+
+- name: Install Atom editor
+  apt:
+    deb: /tmp/atom.deb

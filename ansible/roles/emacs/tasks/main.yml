@@ -3,7 +3,7 @@
   package:
     name: emacs
     state: latest
-  become: true
+  become: "{{package_user}}"
 
 - name: Check for Cask installation
   stat: path=~/.cask

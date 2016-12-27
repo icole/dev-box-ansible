@@ -1,6 +1,15 @@
 ---
+- include_vars: "{{ playbook_dir }}/vars/linux.yml"
+  when: ansible_distribution != "MacOSX"
+
+- include_vars: "{{ playbook_dir }}/vars/osx.yml"
+  when: ansible_distribution == "MacOSX"
+  
 - name: Determine operating system
   debug: var=ansible_distribution
+
+- name: Print package user
+  debug: var=package_user
 
 - include: osx.yml
   when: ansible_distribution == "MacOSX"

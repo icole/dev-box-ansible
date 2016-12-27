@@ -3,7 +3,7 @@
   package:
     name: vim
     state: latest
-  become: true
+  become: "{{package_user}}"
 
 - stat: path=~/.vim.old/
   register: oldvim

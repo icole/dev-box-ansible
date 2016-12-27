@@ -2,6 +2,11 @@
 - name: Install Powerline
   shell: pip install powerline-status
 
+- name: Initialize .config directory
+  file:
+    dest: ~/.config
+    state: directory
+
 - name: Configure Powerline
   shell: cp -r {{ pip_directory }}/powerline/config_files ~/.config/powerline
 

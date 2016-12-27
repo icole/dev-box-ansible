@@ -3,7 +3,7 @@
   package:
     name: tmux
     state: latest
-  become: true
+  become: "{{package_user}}"
 
 - name: Copy tmux configurations
-  file: src={{ playbook_dir }}/roles/tmux/files/tmux.conf dest=~/.tmux.conf state="link"
+  template: src={{ playbook_dir }}/roles/tmux/templates/tmux.conf.j2 dest=~/.tmux.conf

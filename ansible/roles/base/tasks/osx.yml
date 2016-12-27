@@ -18,6 +18,7 @@
     - python3
     - mongo
     - macvim
+    - gpg
 
 - name: Install base OS X apps
   homebrew_cask:

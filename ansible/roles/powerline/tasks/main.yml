@@ -9,3 +9,11 @@
   copy:
     src={{ playbook_dir}}/roles/powerline/files/tmux.json
     dest=~/.config/powerline/themes/tmux/default.json
+
+- name: Download Powerline fonts
+  git:
+    repo: git@github.com:powerline/fonts.git
+    dest: ~/Workspace/powerline-fonts
+
+- name: Install Powerline fonts
+  shell: ~/Workspace/powerline-fonts/install.sh

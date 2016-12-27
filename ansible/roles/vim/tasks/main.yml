@@ -1,13 +1,9 @@
 ---
 - name: Install vim
-  homebrew:
-    name: "{{item}}"
-    update_homebrew: yes
-    upgrade_all: yes
+  package:
+    name: vim
     state: latest
-  with_items:
-    - vim
-    - macvim
+  become: true
 
 - stat: path=~/.vim.old/
   register: oldvim

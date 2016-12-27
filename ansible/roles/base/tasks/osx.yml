@@ -9,7 +9,6 @@
     - curl
     - sqlite3
     - phantomjs
-    - cask
     - wget
     - npm
     - memcached
@@ -18,6 +17,7 @@
     - elasticsearch17
     - python3
     - mongo
+    - macvim
 
 - name: Install base OS X apps
   homebrew_cask:
@@ -53,3 +53,19 @@
 
 - name: Link homebrew applications
   shell: brew linkapps
+
+- name: Install railwaycat tap
+  homebrew_tap:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - railwaycat/emacsmacport
+
+- name: Install Mac Emacs
+  homebrew:
+    name: "{{item}}"
+    state: latest
+    update_homebrew: yes
+    upgrade_all: yes
+  with_items:
+    - emacs-mac

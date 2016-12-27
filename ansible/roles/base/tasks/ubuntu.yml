@@ -7,3 +7,18 @@
 - name: Install Atom editor
   apt:
     deb: /tmp/atom.deb
+  become: true
+
+- name: Install base packages
+  apt:
+    name: "{{item}}"
+    state: present
+  become: true
+  with_items:
+    - python-pip
+    - python-dev
+    - build-essential
+    - python3
+    - nodejs
+    - nodejs-legacy
+    - npm

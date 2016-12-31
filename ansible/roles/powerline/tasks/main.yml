@@ -17,8 +17,9 @@
 
 - name: Download Powerline fonts
   git:
-    repo: git@github.com:powerline/fonts.git
+    repo: https://github.com/powerline/fonts.git
     dest: ~/Workspace/powerline-fonts
+    accept_hostkey: true
 
 - name: Install Powerline fonts
   shell: ~/Workspace/powerline-fonts/install.sh

@@ -1,0 +1,4 @@
+- name: Install Atom editor
+  homebrew_cask:
+    name: atom
+    state: present

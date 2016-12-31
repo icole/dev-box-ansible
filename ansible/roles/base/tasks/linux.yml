@@ -1,0 +1,9 @@
+---
+- name: Install base packages
+  package:
+    name: "{{item}}"
+    state: present
+  become: true
+  with_items:
+    - python-pip
+    - python3

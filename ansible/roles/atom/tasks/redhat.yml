@@ -1,0 +1,10 @@
+---
+- name: Download Atom editor
+  get_url:
+    url: https://atom.io/download/rpm
+    dest: /tmp/atom.rpm
+
+- name: Install Atom editor
+  yum:
+    rpm: /tmp/atom.rpm
+  become: true

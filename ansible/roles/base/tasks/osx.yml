@@ -10,7 +10,6 @@
     - sqlite3
     - phantomjs
     - wget
-    - npm
     - memcached
     - redis
     - imagemagick
@@ -43,7 +42,6 @@
     - textexpander
     - slack
     - eclipse-ide
-    - atom
     - 1password
     - alfred
     - iterm2

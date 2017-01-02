@@ -1,2 +1,3 @@
 pip_directory: /home/ubuntu/.local/lib/python2.7/site-packages
+powerline_directory: /usr/share/tmux
 package_user: true

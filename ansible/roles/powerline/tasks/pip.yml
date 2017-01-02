@@ -1,0 +1,25 @@
+---
+- name: Install Powerline
+  shell: pip install powerline-status
+
+- name: Initialize .config directory
+  file:
+    dest: ~/.config
+    state: directory
+
+- name: Configure Powerline
+  shell: cp -r {{ pip_directory }}/powerline/config_files ~/.config/powerline
+
+- name: Copy tmux theme
+  copy:
+    src={{ playbook_dir}}/roles/powerline/files/tmux.json
+    dest=~/.config/powerline/themes/tmux/default.json
+
+- name: Download Powerline fonts
+  git:
+    repo: https://github.com/powerline/fonts.git
+    dest: ~/Workspace/powerline-fonts
+    accept_hostkey: true
+
+- name: Install Powerline fonts
+  shell: ~/Workspace/powerline-fonts/install.sh

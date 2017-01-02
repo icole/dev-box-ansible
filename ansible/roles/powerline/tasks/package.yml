@@ -1,0 +1,8 @@
+---
+- name: Install Powerline
+  package:
+    name: "{{ item }}"
+  become: "{{ package_user }}"
+  with_items:
+    - powerline
+    - tmux-powerline

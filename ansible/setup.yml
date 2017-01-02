@@ -5,5 +5,6 @@
     - nodejs
     - atom
     - emacs
+    - vim
     - tmux
     - powerline

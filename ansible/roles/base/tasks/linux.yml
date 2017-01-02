@@ -7,3 +7,6 @@
   with_items:
     - python-pip
     - python3
+    - mongodb
+    - mongodb-server
+    - zsh

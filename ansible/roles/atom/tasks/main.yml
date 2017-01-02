@@ -3,3 +3,6 @@
 
 - include: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
+
+- include: fedora.yml
+  when: ansible_distribution == "Fedora"

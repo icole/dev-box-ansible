@@ -6,5 +6,5 @@
 
 - name: Install Atom editor
   dnf:
-    rpm: /tmp/atom.rpm
+    name: /tmp/atom.rpm
   become: true

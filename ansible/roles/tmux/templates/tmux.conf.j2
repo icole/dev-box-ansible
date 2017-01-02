@@ -1,3 +1,4 @@
+set-option -g default-shell /usr/bin/zsh
 run-shell "powerline-daemon -q"
 source "{{ powerline_directory }}/powerline.conf"
 
@@ -13,7 +14,6 @@ set -g @plugin 'seebi/tmux-colors-solarized'
 
 set -g @colors-solarized '256'
 set -g status-right-length 100
-set-option -g default-shell /usr/bin/zsh
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

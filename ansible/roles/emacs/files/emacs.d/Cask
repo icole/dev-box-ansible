@@ -23,6 +23,7 @@
 (depends-on "feature-mode")
 (depends-on "git-gutter")
 (depends-on "grizzl")
+(depends-on "habitica")
 (depends-on "haml-mode")
 (depends-on "indent-guide")
 (depends-on "inf-ruby")

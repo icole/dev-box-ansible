@@ -2,12 +2,13 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
 (when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
+  ;; For important compatibility libraries like cl-lib…
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
 (load-file "~/.emacs.d/gimme-cat.el")
 (load-file "~/.cask/cask.el")
+(load-file "~/.emacs.d/credentials.el")
 (require 'cask)
 (cask-initialize)
 (require 'pallet)

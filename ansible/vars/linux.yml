@@ -1,3 +1,4 @@
 pip_directory: /home/ubuntu/.local/lib/python2.7/site-packages
 powerline_directory: /usr/share/tmux
+zsh_path: /usr/bin/zsh
 package_user: true

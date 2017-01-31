@@ -1,3 +1,4 @@
 pip_directory: /usr/local/lib/python2.7/site-packages
-powerline_directory: /usr/local/lib/python2.7/site-packages/powerline
+powerline_directory: /usr/local/lib/python2.7/site-packages/powerline/bindings/tmux
+zsh_path: /usr/local/bin/zsh
 package_user: icole

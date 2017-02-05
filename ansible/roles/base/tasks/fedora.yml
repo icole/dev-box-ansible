@@ -1,0 +1,16 @@
+---
+- name: Install SBT repo
+  shell: curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+
+- name: Install base packages
+  package:
+    name: "{{item}}"
+    state: present
+  become: true
+  with_items:
+    - python-pip
+    - python3
+    - mongodb
+    - mongodb-server
+    - zsh
+    - sbt

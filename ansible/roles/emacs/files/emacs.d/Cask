@@ -50,6 +50,7 @@
 (depends-on "racket-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "rake")
+(depends-on "rspec-mode")
 (depends-on "rvm")
 (depends-on "s")
 (depends-on "sass-mode")

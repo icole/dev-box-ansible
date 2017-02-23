@@ -10,7 +10,6 @@
 (load-file "~/.cask/cask.el")
 (load-file "~/.emacs.d/creds.el")
 (require 'cask)
-(require 'pallet)
 (cask-initialize)
 (pallet-mode t)
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)

@@ -1,7 +1,11 @@
 {
     "segments": {
 	"right": [
-	    {
+    {
+      "function": "powerline.segments.common.players.spotify",
+      "name": "player"
+    },
+    {
 		"function": "powerline.segments.common.wthr.weather",
 		"name": "weather",
 		"priority": 50,

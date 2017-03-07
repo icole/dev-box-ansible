@@ -208,9 +208,30 @@
 
 (global-set-key (kbd "C-h P") 'perldoc)
 
+
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; Custom Functions:
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; attempt to load a feature/library, failing silently
+
+(defun try-require (feature)
+  "Attempt to load a library or module. Return true if the
+library given as argument is successfully loaded. If not, instead
+of an error, just add the package to a list of missing packages."
+  (condition-case err
+      ;; protected form
+      (progn
+        (message "Checking for library `%s'..." feature)
+        (if (stringp feature)
+            (load-library feature)
+          (require feature))
+        (message "Checking for library `%s'... Found" feature))
+    ;; error handler
+    (file-error  ; condition
+     (progn
+       (message "Checking for library `%s'... Missing" feature)
+       (add-to-list 'missing-packages-list feature 'append))
+     nil)))
 
 (defun new-empty-buffer ()
   "Open a new empty buffer."
@@ -316,6 +337,89 @@ If the new path's directories does not exist, create them."
 (global-set-key (kbd "C-<")     'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; Shell stuff (mostly borrowed from https://lists.gnu.org/archive/html/help-gnu-emacs/2010-12/msg01466.html):
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; for single shell commands
+(setq shell-file-name "bash")
+
+;; use `shell-file-name' as the default shell
+(setenv "SHELL" shell-file-name)
+
+;; switch used to have the shell execute its command line argument
+(setq shell-command-switch "-c")
+
+;; quote process arguments to ensure correct parsing on Windows
+(setq w32-quote-process-args t)
+
+;; name of shell used to parse TeX commands
+(setq TeX-shell shell-file-name)
+
+;; shell argument indicating that next argument is the command
+(setq TeX-shell-command-option shell-command-switch)
+
+;; for the interactive (sub)shell
+(setq explicit-shell-file-name shell-file-name)
+
+;; args passed to inferior shell by `M-x shell', if the shell is bash
+(setq explicit-bash-args '("--noediting" "--login"))
+;; FIXME This ensures that /etc/profile gets read (at least for Cygwin).
+;; Is this good?
+
+;; general command interpreter in a window stuff
+(when (try-require 'comint)
+
+  ;; regexp to recognize prompts in the inferior process
+  (defun set-shell-prompt-regexp ()
+    (setq comint-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
+  (add-hook 'shell-mode-hook 'set-shell-prompt-regexp)
+
+  ;; don't add input matching the last on the input ring
+  (setq-default comint-input-ignoredups t)
+
+  ;; input to interpreter causes (only) the selected window to scroll
+  (setq-default comint-scroll-to-bottom-on-input "this")
+
+  ;; output to interpreter causes (only) the selected window to scroll
+  (setq-default comint-scroll-to-bottom-on-output "this")
+
+  ;; show the maximum output when the window is scrolled
+  (setq-default comint-scroll-show-maximum-output t)
+
+  ;; ignore short commands as well as duplicates
+  (setq comint-min-history-size 5)
+  (make-variable-buffer-local 'comint-min-history-size)
+  (setq-default comint-input-filter
+                (function
+                 (lambda (str)
+                   (and (not (string-match "\\`\\s *\\'" str))
+                        (> (length str) comint-min-history-size)))))
+
+  ;; functions to call after output is inserted into the buffer
+  (setq-default comint-output-filter-functions
+                ;; go to the end of buffer (this can be irritating for
+                ;; some)
+                '(comint-postoutput-scroll-to-bottom))
+
+  ;; get rid of the ^M characters
+  (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+
+  ;; prompt in the minibuffer for password and send without echoing
+  ;; (for example, with `su' command)
+  (add-hook 'comint-output-filter-functions
+            'comint-watch-for-password-prompt)
+
+  ;; use the `up' and `down' arrow keys to traverse through the previous
+  ;; commands
+  (defun my/shell-mode-hook ()
+    "Customize my shell-mode."
+    (local-set-key (kbd "<up>") 'comint-previous-input)
+    (local-set-key (kbd "<down>") 'comint-next-input))
+  (add-hook 'shell-mode-hook 'my/shell-mode-hook))
+
+;; regexp to match prompts in the inferior shell
+(setq shell-prompt-pattern (concat "^" (system-name) " [^ ]+ \\[[0-9]+\\] "))
 
 
 (custom-set-faces

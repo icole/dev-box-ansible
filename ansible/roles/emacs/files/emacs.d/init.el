@@ -26,7 +26,8 @@
 (add-hook 'after-make-frame-functions 'my-frame-config)
 
 ;; MAIN Configs
-(evil-mode 1)
+;(evil-mode 1)
+;(evil-set-initial-state 'bs-mode 'emacs)
 (require 'spaceline-config)
 (setq powerline-default-separator 'wave)
 (powerline-default-theme)

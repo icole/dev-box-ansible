@@ -57,6 +57,7 @@
 (elpy-enable)
 (setq css-indent-offset 2)
 (setq typescript-indent-level 2)
+(setq js-indent-level 2)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -64,7 +65,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#657b83"])
- '(coffee-tab-width 2 t)
+ '(coffee-tab-width 2)
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
@@ -105,7 +106,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (spotify evil rspec-mode powerline-evil spaceline helm mo-git-blame typescript-mode habitica yaml-mode web-mode web-beautify vagrant twittering-mode sunshine sublime-themes spacemacs-theme solarized-theme smex slim-mode seti-theme sass-mode rvm rainbow-delimiters racket-mode projectile-rails popwin paredit pallet nyan-mode neotree multiple-cursors multi-term monokai-theme magit less-css-mode keyfreq indent-guide grizzl git-gutter feature-mode evil-visual-mark-mode ensime enh-ruby-mode elpy dired+ darcula-theme coffee-mode beeminder auto-complete ansible ample-theme alchemist)))
+    (vue-html-mode vue-mode org-jira spotify evil rspec-mode powerline-evil spaceline helm mo-git-blame typescript-mode habitica yaml-mode web-mode web-beautify vagrant twittering-mode sunshine sublime-themes spacemacs-theme solarized-theme smex slim-mode seti-theme sass-mode rvm rainbow-delimiters racket-mode projectile-rails popwin paredit pallet nyan-mode neotree multiple-cursors multi-term monokai-theme magit less-css-mode keyfreq indent-guide grizzl git-gutter feature-mode evil-visual-mark-mode ensime enh-ruby-mode elpy dired+ darcula-theme coffee-mode beeminder auto-complete ansible ample-theme alchemist)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
@@ -177,6 +178,7 @@
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.exs$" . elixir-mode))
 (add-to-list 'auto-mode-alist '("\\.slim$" . slim-mode))
 (add-to-list 'auto-mode-alist '("\\.p[lm]$" . cperl-mode))
@@ -214,6 +216,13 @@
 ;; ;; Custom Functions:
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; attempt to load a feature/library, failing silently
+
+(defun jira-with-prefix-arg ()
+  (interactive)
+  (setq current-prefix-arg '(Jql: assignee = currentUser() and resolution = unresolved and Sprints = "Vaccine (4.3 - 4.28)")) ; C-u
+  (call-interactively 'org-jira-get-issues))
+
+(global-set-key (kbd "C-c j g") 'jira-with-prefix-arg)
 
 (defun try-require (feature)
   "Attempt to load a library or module. Return true if the

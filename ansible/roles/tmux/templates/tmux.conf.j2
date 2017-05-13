@@ -20,7 +20,7 @@ run '~/.tmux/plugins/tpm/tpm'
 
 set -g prefix C-b
 bind-key b send-prefix # for nested tmux sessions
-setw -g automatic-rename
+set-option -g allow-rename off
 
 #Copy/Pasting
 bind-key -n -t emacs-copy C-k copy-pipe "reattach-to-user-namespace pbcopy"

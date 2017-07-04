@@ -13,7 +13,6 @@
     - memcached
     - redis
     - imagemagick
-    - elasticsearch17
     - python3
     - mongo
     - macvim

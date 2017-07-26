@@ -13,7 +13,6 @@
     - memcached
     - redis
     - imagemagick
-    - elasticsearch17
     - python3
     - mongo
     - macvim
@@ -25,7 +24,6 @@
     state: present
   with_items:
     - skype
-    - evernote
     - google-chrome
     - dropbox
     - skitch
@@ -39,7 +37,6 @@
     - pgadmin3
     - vagrant
     - ngrok
-    - textexpander
     - slack
     - eclipse-ide
     - 1password
@@ -50,19 +47,3 @@
 
 - name: Link homebrew applications
   shell: brew linkapps
-
-- name: Install railwaycat tap
-  homebrew_tap:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - railwaycat/emacsmacport
-
-- name: Install Mac Emacs
-  homebrew:
-    name: "{{item}}"
-    state: latest
-    update_homebrew: yes
-    upgrade_all: yes
-  with_items:
-    - emacs-mac

@@ -1,7 +1,6 @@
 - hosts: all
   roles:
     - base
-    - ruby
     - nodejs
     - atom
     - emacs

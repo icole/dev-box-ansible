@@ -1,0 +1,16 @@
+---
+- name: Install railwaycat tap
+  homebrew_tap:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - railwaycat/emacsmacport
+
+- name: Install Mac Emacs
+  homebrew:
+    name: "{{item}}"
+    state: latest
+    update_homebrew: yes
+    upgrade_all: yes
+  with_items:
+    - emacs-mac

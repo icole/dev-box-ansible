@@ -5,4 +5,7 @@
     state: latest
   become: "{{package_user}}"
 
+- include: osx.yml
+  when: ansible_distribution == "MacOSX"
+
 - include: custom.yml

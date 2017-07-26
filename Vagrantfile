@@ -17,8 +17,7 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SCRIPT
     sudo dnf update
-    sudo dnf install -y ansible
-    sudo dnf install -y python-dnf
+    /home/vagrant/bootstrap-linux.sh
     mkdir /home/vagrant/Workspace
     ln -s /vagrant/ /home/vagrant/Workspace/dotfiles
   SCRIPT

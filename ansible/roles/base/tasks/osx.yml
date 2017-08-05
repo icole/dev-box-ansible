@@ -44,6 +44,11 @@
     - iterm2
     - virtualbox
     - caprine
+    - karabiner
+    - karabiner-elements
+    - bartender
+    - spotify
+    - firefox
 
 - name: Link homebrew applications
   shell: brew linkapps

@@ -3,4 +3,4 @@
 .vagrant/
 *console.log
 projectile.cache
-ansible/roles/emacs/files/emacs.d/
+ansible/roles/emacs/files/emacs.d/request/

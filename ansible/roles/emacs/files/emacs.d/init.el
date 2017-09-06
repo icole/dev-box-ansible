@@ -229,7 +229,7 @@
 
 (defun jira-with-prefix-arg ()
   (interactive)
-  (setq current-prefix-arg '(Jql: assignee = currentUser() and resolution = unresolved and Sprints = "Vaccine (4.3 - 4.28)")) ; C-u
+  (setq current-prefix-arg '(Jql: assignee = currentUser() AND resolution = Unresolved AND filter in ("_Rolling Current Sprint"))) ; C-u
   (call-interactively 'org-jira-get-issues))
 
 (global-set-key (kbd "C-c j g") 'jira-with-prefix-arg)

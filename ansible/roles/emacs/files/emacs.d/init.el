@@ -55,6 +55,7 @@
 (ac-config-default)
 (global-auto-complete-mode t)
 (elpy-enable)
+(setq web-mode-markup-indent-offset 2)
 (setq css-indent-offset 2)
 (setq typescript-indent-level 2)
 (setq js-indent-level 2)
@@ -226,6 +227,8 @@
 ;; ;; Custom Functions:
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; attempt to load a feature/library, failing silently
+
+(global-set-key (kbd "C-x <up>") 'join-line)
 
 (defun jira-with-prefix-arg ()
   (interactive)

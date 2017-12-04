@@ -1,0 +1,19 @@
+---
+- homebrew_tap:
+    name: ethereum/ethereum
+    state: present
+
+- name: Install geth client
+  package:
+    name: "{{item}}"
+    state: present
+  become: "{{package_user}}"
+  with_items:
+    - ethereum
+
+- name: Install testrpm and truffle
+  npm: name="{{item}}" global=yes
+  become: true
+  with_items:
+    - ethereumjs-testrpc
+    - truffle

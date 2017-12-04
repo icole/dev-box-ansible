@@ -17,6 +17,7 @@
     - mongo
     - macvim
     - gpg
+    - yarn
 
 - name: Install base OS X apps
   homebrew_cask:

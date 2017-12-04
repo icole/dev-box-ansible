@@ -1,6 +1,6 @@
 ---
-- include: package.yml
+- include_tasks: package.yml
   when: ansible_distribution == "Fedora"
 
-- include: pip.yml
+- include_tasks: pip.yml
   when: ansible_distribution != "Fedora"

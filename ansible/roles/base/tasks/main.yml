@@ -8,11 +8,11 @@
 - include_vars: "{{ playbook_dir }}/vars/linux.yml"
   when: ansible_distribution != "MacOSX"
 
-- include: osx.yml
+- include_tasks: osx.yml
   when: ansible_distribution == "MacOSX"
 
-- include: fedora.yml
+- include_tasks: fedora.yml
   when: ansible_distribution == "Fedora"
 
-- include: ubuntu.yml
+- include_tasks: ubuntu.yml
   when: ansible_distribution == "Ubuntu"

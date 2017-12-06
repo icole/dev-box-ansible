@@ -1,15 +1,9 @@
 ---
-- homebrew_tap:
-    name: ethereum/ethereum
-    state: present
+- include_tasks: install_osx.yml
+  when: ansible_distribution == "MacOSX"
 
-- name: Install geth client
-  package:
-    name: "{{item}}"
-    state: present
-  become: "{{package_user}}"
-  with_items:
-    - ethereum
+- include_tasks: install_linux.yml
+  when: ansible_distribution != "MacOSX"
 
 - name: Install testrpm and truffle
   npm: name="{{item}}" global=yes

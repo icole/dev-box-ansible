@@ -5,7 +5,7 @@
     state: latest
   become: "{{package_user}}"
 
-- stat: path=~/.vim.old/
+- stat: path=~/.vim/
   register: oldvim
 
 - name: Install Janus

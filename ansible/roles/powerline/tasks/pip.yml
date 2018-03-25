@@ -1,5 +1,6 @@
 ---
 - name: Install Powerline
+  become: "{{ package_user }}"
   shell: pip install powerline-status --user
 
 - name: Initialize .config directory

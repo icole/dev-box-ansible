@@ -16,3 +16,6 @@
 
 - include_tasks: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
+
+- include: redhat.yml
+  when: ansible_distribution == "RedHat"

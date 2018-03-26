@@ -5,7 +5,6 @@
     state: present
   become: true
   with_items:
-    - git
     - gpg
     - python-pip
     - python3

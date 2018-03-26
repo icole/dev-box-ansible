@@ -20,12 +20,6 @@ fi
 # Modify the path
 export PATH=/usr/local/bin:$PATH
 
-# Download and install zsh
-if [[ ! -x /usr/local/bin/zsh ]]; then
-	info "Installing zsh\n"
-	brew install zsh
-fi
-
 # Download and install git
 if [[ ! -x /usr/local/bin/git ]]; then
 	info "Installing git\n"
@@ -60,4 +54,3 @@ if [ ! "$SHELL" == "/usr/local/bin/zsh" ]; then
         info "Switching to Oh-My-Zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
-

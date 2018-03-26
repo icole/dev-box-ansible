@@ -1,6 +1,13 @@
 ---
+- name: Download SBT repo
+  get_url:
+    url: https://bintray.com/sbt/rpm/rpm
+    dest: /etc/yum.repos.d/bintray-sbt.repo
+  become: true
+
 - name: Install SBT repo
-  shell: curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+  dnf: state=present name=sbt
+  become: true
 
 - name: Install base packages
   package:

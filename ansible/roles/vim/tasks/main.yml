@@ -8,6 +8,13 @@
 - stat: path=~/.vim/
   register: oldvim
 
-- name: Install Janus
-  shell: curl -L https://bit.ly/janus-bootstrap | bash
+- name: Download Janus installer
+  get_url:
+    url: https://bit.ly/janus-bootstrap
+    dest: /tmp/janus-bootstrap
+    mode: 0755
+  when: oldvim.stat.isdir is not defined
+
+- name: Run Janus installer
+  script: /tmp/janus-bootstrap
   when: oldvim.stat.isdir is not defined

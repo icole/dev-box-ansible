@@ -20,6 +20,12 @@ fi
 if [ "$OS" == "Ubuntu" ]; then
 	echo "Detected Ubuntu platform"
 
+  # Download and install zsh
+	if [[ ! -x /usr/bin/zsh ]]; then	
+		echo "Installing zsh"
+		sudo apt-get install zsh
+	fi
+
 	# Download and install git
 	if [[ ! -x /usr/local/bin/git ]]; then
 		echo "Installing git"
@@ -38,7 +44,13 @@ if [ "$OS" == "Ubuntu" ]; then
 		sudo apt-get install ansible
 	fi
 elif [ "$OS" == "Fedora" ]; then
-	echo "Detected Fedora platform"ß
+	echo "Detected Fedora platform"
+
+  # Download and install zsh
+	if [[ ! -x /usr/bin/zsh ]]; then
+		echo "Installing zsh"
+		sudo dnf install -y zsh
+	fi
 
 	# Download and install git
 	if [[ ! -x /usr/local/bin/git ]]; then

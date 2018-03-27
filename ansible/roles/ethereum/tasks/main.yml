@@ -5,7 +5,7 @@
 - include_tasks: install_linux.yml
   when: ansible_distribution != "MacOSX"
 
-- name: Install testrpm and truffle
+- name: Install ganache and truffle
   npm: name="{{item}}" global=yes
   become: true
   with_items:

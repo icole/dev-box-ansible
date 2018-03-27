@@ -24,13 +24,13 @@
     name: "{{item}}"
     state: present
   with_items:
-    - skype
     - google-chrome
-    - dropbox
-    - skitch
-    - hyperdock
+    - firefox
     - rubymine
     - webstorm
+    - datagrip
+    - eclipse-ide
+    - atom
     - postgres
     - java
     - flux
@@ -38,17 +38,23 @@
     - vagrant
     - ngrok
     - slack
-    - eclipse-ide
+    - telegram
+    - skype
+    - discord
     - 1password
     - alfred
     - iterm2
     - virtualbox
-    - caprine
+    - ganache
+    - nordvpn
+    - dropbox
+    - skitch
+    - hyperdock
+    - rescuetime
     - karabiner
     - karabiner-elements
+    - chosy
     - bartender
     - spotify
-    - firefox
-
-- name: Link homebrew applications
-  shell: brew linkapps
+    - trello
+    - vlc

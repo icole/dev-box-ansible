@@ -1,7 +1,9 @@
 ---
 - name: Install Powerline
   become: "{{ package_user }}"
-  shell: pip install powerline-status --user
+  pip:
+    name: powerline-status
+    extra_args: --user
 
 - name: Initialize .config directory
   file:
@@ -9,12 +11,15 @@
     state: directory
 
 - name: Configure Powerline
-  shell: cp -r {{ pip_directory }}/powerline/config_files ~/.config/powerline
+  copy:
+    src: "{{ pip_directory }}/powerline/config_files"
+    dest: ~/.config/powerline
+    force: no
 
 - name: Copy tmux theme
   copy:
-    src={{ playbook_dir}}/roles/powerline/files/tmux.json
-    dest=~/.config/powerline/themes/tmux/default.json
+    src: "{{ playbook_dir }}/roles/powerline/files/tmux.json"
+    dest: ~/.config/powerline/themes/tmux/default.json
 
 - name: Download Powerline fonts
   git:
@@ -22,5 +27,9 @@
     dest: ~/Workspace/powerline-fonts
     accept_hostkey: true
 
+- stat: path=~/Workspace/powerline-fonts/installed.marker
+  register: installed_marker
+
 - name: Install Powerline fonts
-  shell: ~/Workspace/powerline-fonts/install.sh
+  shell: ~/Workspace/powerline-fonts/install.sh && touch ~/Workspace/powerline-fonts/installed.marker
+  when: installed_marker.stat.exists

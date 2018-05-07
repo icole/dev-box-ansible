@@ -4,3 +4,4 @@
 *console.log
 projectile.cache
 ansible/roles/emacs/files/emacs.d/request/
+.idea/

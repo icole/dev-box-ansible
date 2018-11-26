@@ -1,8 +1,0 @@
-- include_tasks: osx.yml
-  when: ansible_distribution == "MacOSX"
-
-- include_tasks: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- include_tasks: fedora.yml
-  when: ansible_distribution == "Fedora"

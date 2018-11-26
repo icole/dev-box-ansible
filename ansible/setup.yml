@@ -2,7 +2,6 @@
   roles:
     - base
     - nodejs
-    - atom
     - emacs
     - vim
     - tmux

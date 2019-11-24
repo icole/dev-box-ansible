@@ -11,16 +11,16 @@ if [[ ! -x /usr/bin/gcc ]]; then
 	xcode-select --install
 fi
 
-# Download and install zsh
-if [[ ! -x /usr/local/bin/zsh ]]; then
-	info "Installing zsh\n"
-	brew install zsh
-fi
-
 # Download and install Homebrew
 if [[ ! -x /usr/local/bin/brew ]]; then
 	info "Installing Homebrew\n"
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Download and install zsh
+if [[ ! -x /usr/local/bin/zsh ]]; then
+	info "Installing zsh\n"
+	brew install zsh
 fi
 
 # Modify the path

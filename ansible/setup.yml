@@ -1,9 +1,5 @@
 - hosts: all
   roles:
     - base
-    - nodejs
-    - emacs
-    - vim
+    - vscode
     - tmux
-    - powerline
-    - ethereum

@@ -35,7 +35,7 @@ fi
 # Download and install python
 if [[ ! -x /usr/local/bin/python ]]; then
 	info "Installing Python\n"
-	brew install python --framework --with-brewed-openssl
+	brew install python
 fi
 
 # Download and install Ansible
@@ -44,19 +44,19 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
 	brew install ansible
 fi
 
-if ! (brew list -1 | grep -q "^brew-cask$"); then
-	info "Installing brew cask...\n"
-	brew install caskroom/cask/brew-cask
-fi
+# if ! (brew list -1 | grep -q "^brew-cask$"); then
+# 	info "Installing brew cask...\n"
+# 	brew tap homebrew/cask-cask
+# fi
 
-if ! (brew tap | grep -q "^homebrew/versions"); then
-	info "Tapping brew cask versions...\n"
-	brew tap caskroom/versions
-fi
+# if ! (brew tap | grep -q "^homebrew/versions"); then
+# 	info "Tapping brew cask versions...\n"
+# 	brew tap caskroom/versions
+# fi
 
 success "Bootstrapping is complete\n"
 
 if [ ! "$SHELL" == "/usr/local/bin/zsh" ]; then
-        info "Switching to Oh-My-Zsh"
+    info "Switching to Oh-My-Zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi

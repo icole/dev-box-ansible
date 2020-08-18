@@ -1,60 +1,33 @@
 ---
 - name: Install base OS X packages
   homebrew:
-    name: "{{item}}"
     update_homebrew: yes
     upgrade_all: yes
     state: latest
-  with_items:
-    - curl
-    - sqlite3
-    - phantomjs
-    - wget
-    - memcached
-    - redis
-    - imagemagick@6
-    - python3
-    - mongo
-    - macvim
-    - gpg
-    - yarn
+    name: [
+      'curl',
+      'sqlite3',
+      'wget',
+      'memcached',
+      'redis',
+      'imagemagick',
+      'macvim',
+      'gpg',
+      'yarn'
+    ]
 
 - name: Install base OS X apps
   homebrew_cask:
-    name: "{{item}}"
     state: present
-  with_items:
-    - google-chrome
-    - firefox
-    - rubymine
-    - webstorm
-    - datagrip
-    - eclipse-ide
-    - atom
-    - postgres
-    - java
-    - flux
-    - pgadmin3
-    - vagrant
-    - ngrok
-    - slack
-    - telegram
-    - skype
-    - discord
-    - 1password
-    - alfred
-    - iterm2
-    - virtualbox
-    - ganache
-    - nordvpn
-    - dropbox
-    - skitch
-    - hyperdock
-    - rescuetime
-    - karabiner
-    - karabiner-elements
-    - chosy
-    - bartender
-    - spotify
-    - trello
-    - vlc
+    name: [
+      'google-chrome',
+      'firefox',
+      'iterm2',
+      'omnifocus',
+      'dropbox',
+      'telegram',
+      'nordvpn',
+      'slack',
+      'bartender',
+      'spotify'
+    ]

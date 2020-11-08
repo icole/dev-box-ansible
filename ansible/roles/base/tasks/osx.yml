@@ -11,9 +11,7 @@
       'memcached',
       'redis',
       'imagemagick',
-      'macvim',
       'gpg',
-      'yarn'
     ]
 
 - name: Install base OS X apps
@@ -23,7 +21,6 @@
       'google-chrome',
       'firefox',
       'iterm2',
-      'omnifocus',
       'dropbox',
       'telegram',
       'nordvpn',

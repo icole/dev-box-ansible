@@ -4,27 +4,11 @@
     update_homebrew: yes
     upgrade_all: yes
     state: latest
-    name: [
-      'curl',
-      'sqlite3',
-      'wget',
-      'memcached',
-      'redis',
-      'imagemagick',
-      'gpg',
-    ]
+    name:
+      ["curl", "sqlite3", "wget", "memcached", "redis", "imagemagick", "gpg"]
 
 - name: Install base OS X apps
   homebrew_cask:
     state: present
-    name: [
-      'google-chrome',
-      'firefox',
-      'iterm2',
-      'dropbox',
-      'telegram',
-      'nordvpn',
-      'slack',
-      'bartender',
-      'spotify'
-    ]
+    name:
+      ["google-chrome", "firefox", "iterm2", "slack", "bartender", "spotify"]

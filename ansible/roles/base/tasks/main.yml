@@ -1,15 +1,10 @@
 ---
-- name: Determine operating system
-  debug: var=ansible_distribution
-
-- include_vars: "{{ playbook_dir }}/vars/osx.yml"
-  when: ansible_distribution == "MacOSX"
-
-- include_vars: "{{ playbook_dir }}/vars/linux.yml"
-  when: ansible_distribution != "MacOSX"
-
-- include_tasks: osx.yml
-  when: ansible_distribution == "MacOSX"
-
-- include_tasks: linux.yml
-  when: ansible_distribution != "MacOSX"
+- name: Install base tools via asdf
+  include_role:
+    name: particledecay.asdf
+  vars:
+    asdf_plugins:
+      - name: ruby
+        versions:
+          - "3.0.2"
+        global: "3.0.2"

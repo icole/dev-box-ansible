@@ -5,8 +5,4 @@
     state: present
   become: true
   with_items:
-    - python-pip
-    - mongodb
-    - mongodb-server
-    - zsh
-    - sbt
+    - fish

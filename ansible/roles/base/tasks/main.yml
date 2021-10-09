@@ -1,5 +1,27 @@
 ---
-- name: Install base tools via asdf
+- name: Install base packages
+  ansible.builtin.package:
+    name:
+      - gcc
+      - bzip2
+      - libopenssl-devel
+      - libyaml-devel
+      - libffi-devel
+      - readline-devel
+      - zlib-devel
+      - gdbm-devel
+      - ncurses-devel
+      - tmux
+  become: true
+
+- name: openSUSE build essentials
+  zypper:
+    name: devel_basis
+    type: pattern
+    state: present
+  become: true
+
+- name: Install Ruby, Node.js
   include_role:
     name: particledecay.asdf
   vars:
@@ -8,3 +30,26 @@
         versions:
           - "3.0.2"
         global: "3.0.2"
+      - name: nodejs
+        versions:
+          - "latest"
+        global: "latest"
+
+- name: Tmuxinator
+  community.general.gem:
+    name: tmuxinator
+    state: latest
+
+- name: Add the flathub flatpak repository remote to the user installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Flathub packages
+  community.general.flatpak:
+    name:
+      - org.signal.Signal
+      - com.github.vladimiry.ElectronMail
+    state: present
+  become: true

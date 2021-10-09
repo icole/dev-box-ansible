@@ -3,18 +3,10 @@
 echo "Beginning bootstrapping for Linux"
 
 echo "Determine Linux Distro"
-if [ -f /etc/lsb-release ]; then
-    	. /etc/lsb-release
-    	OS=$DISTRIB_ID
-elif [ -f /etc/fedora-release ]; then
-      OS="Fedora"
-elif [ -f /etc/redhat-release ]; then
-    	OS="Red Hat"
-else
-    	OS=$(uname -s)
-fi
+current_distro=$(awk -F= '$1 == "ID" { print $2 }' /etc/*-release)
+echo "$current_distro"
 
-if [ "$OS" == "Fedora" ]; then
+if [ "$current_distro" == "fedora" ]; then
 	echo "Detected Fedora platform"
 
 	# Download and install git
@@ -36,6 +28,20 @@ if [ "$OS" == "Fedora" ]; then
 		echo "Installing Ansible"
 		sudo dnf install -y ansible
 	fi
+elif [[ $current_distro =~ "opensuse" ]]; then
+	echo "Detected openSUSE platform"
+
+	# Download and install git
+        if [[ ! -x /usr/local/bin/git ]]; then
+                echo "Installing git"
+                sudo zypper install -y git
+        fi
+
+        # Download and install Ansible
+        if [[ ! -x /usr/local/bin/ansible ]]; then
+                echo "Installing Ansible"
+                sudo zypper install -y ansible
+        fi
 fi
 
 echo "Bootstrapping is complete"

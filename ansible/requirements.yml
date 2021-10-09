@@ -1,1 +1,8 @@
-- src: particledecay.asdf
+---
+collections:
+  - name: community.general
+
+roles:
+  - src: particledecay.asdf
+  - src: gantsign.visual-studio-code
+

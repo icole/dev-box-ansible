@@ -39,6 +39,7 @@
   community.general.gem:
     name: tmuxinator
     state: latest
+    bindir: ~/.local/bin
 
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:

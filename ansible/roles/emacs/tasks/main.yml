@@ -1,9 +1,0 @@
----
-- name: Install emacs
-  package:
-    name: emacs
-    state: latest
-  become: "{{package_user}}"
-
-- include_tasks: osx.yml
-  when: ansible_distribution == "MacOSX"

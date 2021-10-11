@@ -4,7 +4,6 @@
     name:
       - gcc
       - bzip2
-      - libopenssl-devel
       - libyaml-devel
       - libffi-devel
       - readline-devel
@@ -14,12 +13,27 @@
       - tmux
   become: true
 
+- name: Fedora base packages
+  ansible.builtin.package:
+    name:
+      - openssl-devel
+  become: true
+  when: ansible_facts['os_family'] == 'RedHat'
+
+- name: openSUSE base packages
+  ansible.builtin.package:
+    name:
+      - libopenssl-devel
+  become: true
+  when: ansible_facts['os_family'] == 'Suse'
+
 - name: openSUSE build essentials
   zypper:
     name: devel_basis
     type: pattern
     state: present
   become: true
+  when: ansible_facts['os_family'] == 'Suse'
 
 - name: Install Ruby, Node.js
   include_role:
@@ -60,7 +74,6 @@
 - name: Flathub packages
   community.general.flatpak:
     name:
-      - org.signal.Signal
       - com.github.vladimiry.ElectronMail
     state: present
   become: true

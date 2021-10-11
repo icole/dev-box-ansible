@@ -3,5 +3,6 @@
     - asdf_version: "v0.8.1"
   roles:
     - particledecay.asdf
-    - gantsign.visual-studio-code
     - base
+    - gantsign.visual-studio-code
+    - signal

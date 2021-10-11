@@ -1,0 +1,21 @@
+---
+- name: Install Signal COPR repository
+  command:
+    cmd: dnf copr enable -y luminoso/Signal-Desktop
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:luminoso:Signal-Desktop.repo
+  become: true
+  when: ansible_facts['distribution'] == 'Fedora'
+
+- name: Add SUSE OBS repository
+  community.general.zypper_repository:
+    repo: "https://download.opensuse.org/repositories/network:im:signal/openSUSE_Tumbleweed/network:im:signal.repo"
+    name: signal-desktop
+    state: present
+    runrefresh: yes
+  become: true
+  when: ansible_facts['os_family'] == 'Suse'
+
+- name: Install Signal Desktop
+  ansible.builtin.package:
+    name: signal-desktop
+  become: true

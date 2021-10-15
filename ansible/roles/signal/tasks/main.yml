@@ -8,10 +8,10 @@
 
 - name: Add SUSE OBS repository
   community.general.zypper_repository:
-    repo: "https://download.opensuse.org/repositories/network:im:signal/openSUSE_Tumbleweed/network:im:signal.repo"
-    name: signal-desktop
+    repo: "https://download.opensuse.org/repositories/network:im:signal/openSUSE_Tumbleweed/"
+    name: "Signal"
+    auto_import_keys: yes
     state: present
-    runrefresh: yes
   become: true
   when: ansible_facts['os_family'] == 'Suse'
 

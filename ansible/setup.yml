@@ -3,7 +3,7 @@
     asdf_version: "v0.8.1"
     default_shell: "fish"
     nf_user: "icole"
-    nf_group: "users"
+    nf_group: "icole"
     nf_single_fonts:
       - "FiraCode/Regular/complete/Fira Code Regular Nerd Font Complete.ttf"
   roles:

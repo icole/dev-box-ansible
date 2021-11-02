@@ -6,11 +6,15 @@
 
 - name: Change default shell
   ansible.builtin.shell: chsh -s /usr/bin/{{ default_shell|quote }}
-  become: true
 
 - name: Install starship prompt
   ansible.builtin.shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
   become: true
+
+- name: Ensure fish config directory exists
+  file:
+    path: "~/.config/fish"
+    state: directory
 
 - name: Set fish config file
   template:

@@ -6,6 +6,7 @@
 
 - name: Change default shell
   ansible.builtin.shell: chsh -s /usr/bin/{{ default_shell|quote }}
+  become: true
 
 - name: Install starship prompt
   ansible.builtin.shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
@@ -23,5 +24,10 @@
 
 - name: Install fisher plugin manager
   ansible.builtin.shell: curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+  args:
+    executable: /usr/bin/fish
+
+- name: Install asdf fish plugin
+  ansible.builtin.shell: fisher install rstacruz/fish-asdf
   args:
     executable: /usr/bin/fish

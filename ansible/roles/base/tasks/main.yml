@@ -49,24 +49,9 @@
           - "latest"
         global: "latest"
 
-- name: Clone TPM to TMUX plugins
-  git:
-    repo: https://github.com/tmux-plugins/tpm
-    dest: ~/.tmux/plugins/tpm
-
-- name: Tmuxinator
-  community.general.gem:
-    name: tmuxinator
-    state: latest
-    bindir: ~/.local/bin
-
-- name: TMUX config
-  template:
-    src: "tmux.conf.j2"
-    dest: "~/.tmux.conf"
-
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  become: true

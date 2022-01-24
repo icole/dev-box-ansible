@@ -11,5 +11,6 @@
     - particledecay.asdf
     - base
     - shell
-    - gantsign.visual-studio-code
-    - signal
+    - tmux
+    #- gantsign.visual-studio-code
+    #- signal

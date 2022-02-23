@@ -1,11 +1,10 @@
-# dotfiles
+# dev-box-ansible
 To get my system situated
 
 ## Platforms:
-- macOS Sierra
-- Ubuntu 16.10
-- Ubuntu 16.04
-- Fedora 25
+- macOS
+- openSUSE
+- Fedora
 
 ## Deployment steps
 - `bootstrap.sh` to get fresh system setup with basics (Git, Python, Ansible, Zsh, Oh-My-Zsh)

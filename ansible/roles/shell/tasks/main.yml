@@ -8,14 +8,24 @@
   ansible.builtin.shell: chsh -s /usr/bin/{{ default_shell|quote }}
   become: true
 
-- name: Install starship prompt
-  ansible.builtin.shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
-  become: true
+- name: Install Oh My Posh
+  ansible.builtin.shell: |
+    wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+    chmod +x /usr/local/bin/oh-my-posh
+   become: true
 
-- name: Ensure fish config directory exists
+- name: Download Oh My Posh Themes
+  ansible.builtin.shell: |
+    mkdir ~/.poshthemes
+    wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+    unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+    chmod u+rw ~/.poshthemes/*.json
+    rm ~/.poshthemes/themes.zip
+
+ - name: Ensure fish config directory exists
   file:
-    path: "~/.config/fish"
-    state: directory
+     path: "~/.config/fish"
+     state: directory
 
 - name: Set fish config file
   template:

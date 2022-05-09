@@ -10,7 +10,6 @@
       - zlib-devel
       - gdbm-devel
       - ncurses-devel
-      - tmux
   become: true
 
 - name: Fedora base packages

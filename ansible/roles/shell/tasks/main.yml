@@ -22,10 +22,10 @@
     chmod u+rw ~/.poshthemes/*.json
     rm ~/.poshthemes/themes.zip
 
- - name: Ensure fish config directory exists
+- name: Ensure fish config directory exists
   file:
-     path: "~/.config/fish"
-     state: directory
+    path: "~/.config/fish"
+    state: directory
 
 - name: Set fish config file
   template:

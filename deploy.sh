@@ -4,7 +4,7 @@
 #. lib-ui.sh
 #. lib-misc.sh
 
-ANSIBLE_CONFIGURATION_DIRECTORY="$HOME/Workspace/dotfiles/ansible"
+ANSIBLE_CONFIGURATION_DIRECTORY="$HOME/Workspace/dev-box-ansible/ansible"
 
 ansible-galaxy install -r "$ANSIBLE_CONFIGURATION_DIRECTORY/requirements.yml"
 ansible-galaxy collection install -r "$ANSIBLE_CONFIGURATION_DIRECTORY/requirements.yml"

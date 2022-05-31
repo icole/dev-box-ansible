@@ -10,6 +10,7 @@
       - zlib-devel
       - gdbm-devel
       - ncurses-devel
+      - ripgrep
   become: true
 
 - name: Fedora base packages
@@ -41,12 +42,12 @@
     asdf_plugins:
       - name: ruby
         versions:
-          - "3.0.2"
-        global: "3.0.2"
+          - "3.1.2"
+        global: "3.1.2"
       - name: nodejs
         versions:
-          - "16.13.1"
-        global: "16.13.1"
+          - "lts"
+        global: "lts"
 
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:

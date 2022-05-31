@@ -11,12 +11,15 @@
       - gdbm-devel
       - ncurses-devel
       - ripgrep
+      - cmake
+      - libtool
   become: true
 
 - name: Fedora base packages
   ansible.builtin.package:
     name:
       - openssl-devel
+      - util-linux-user
   become: true
   when: ansible_facts['os_family'] == 'RedHat'
 

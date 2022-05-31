@@ -6,9 +6,16 @@
     nf_group: "wheel"
     nf_single_fonts:
       - "CascadiaCode/Regular/complete/Caskaydia Cove Regular Nerd Font Complete.otf"
+      - "CascadiaCode/Regular/complete/Caskaydia Cove Regular Nerd Font Complete Mono.otf"
+      - "Overpass/Non-Mono/Regular/complete/Overpass Regular Nerd Font Complete.otf"
+      - "Overpass/Mono/Regular/complete/Overpass Mono Regular Nerd Font Complete Mono.otf"
+      - "JetBrainsMono/Ligatures/Regular/complete/JetBrains Mono Regular Nerd Font Complete.ttf"
+      - "JetBrainsMono/Ligatures/Regular/complete/JetBrains Mono Regular Nerd Font Complete Mono.ttf"
   roles:
     - ctorgalson.nerdfonts
     - particledecay.asdf
     - base
     - shell
     - tmux
+    - signal
+    - vim

@@ -1,9 +1,9 @@
 ---
 - name: Install vim
-  package:
+  ansible.builtin.package:
     name: vim
     state: latest
-  become: "{{package_user}}"
+  become: true
 
 - stat: path=~/.vim/
   register: oldvim

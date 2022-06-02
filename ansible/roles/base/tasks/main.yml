@@ -13,6 +13,7 @@
       - ripgrep
       - cmake
       - libtool
+      - fd-find
   become: true
 
 - name: Fedora base packages

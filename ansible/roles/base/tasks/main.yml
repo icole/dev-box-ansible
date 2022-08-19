@@ -12,8 +12,6 @@
       - ncurses-devel
       - cmake
       - libtool
-      - ripgrep
-      - fd-find
   become: true
 
 - name: Fedora base packages
@@ -39,7 +37,7 @@
   become: true
   when: ansible_facts['os_family'] == 'Suse'
 
-- name: Install Ruby, Node.js
+- name: Install asdf plugins
   include_role:
     name: particledecay.asdf
   vars:
@@ -52,6 +50,10 @@
         versions:
           - "lts"
         global: "lts"
+      - name: dotnet-core
+        versions:
+          - "latest"
+        global: "latest"
 
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:

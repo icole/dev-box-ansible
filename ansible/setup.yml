@@ -36,7 +36,7 @@
         state: present
         version: latest
     nf_user: "icole"
-    nf_group: "wheel"
+    nf_group: "icole"
     nf_single_fonts:
       - "CascadiaCode/Regular/complete/Caskaydia Cove Regular Nerd Font Complete.otf"
       - "CascadiaCode/Regular/complete/Caskaydia Cove Regular Nerd Font Complete Mono.otf"

@@ -1,7 +1,34 @@
 - hosts: all
   vars:
-    asdf_version: "v0.8.1"
-    default_shell: "bash"
+    asdf_version: "v0.10.0"
+    asdf_plugins:
+      - name: nodejs
+        state: present
+        url: https://github.com/asdf-vm/asdf-nodejs.git
+      - name: python
+        state: present
+      - name: ruby
+        state: present
+      - name: yarn
+        state: present
+      - name: pnpm
+        state: present
+    asdf_packages:
+      - name: nodejs
+        state: present
+        version: latest
+      - name: nodejs
+        state: present
+        version: lts
+      - name: ruby
+        state: present
+        version: latest
+      - name: yarn
+        state: present
+        version: latest
+      - name: pnpm
+        state: present
+        version: latest
     nf_user: "icole"
     nf_group: "wheel"
     nf_single_fonts:
@@ -13,7 +40,7 @@
       - "JetBrainsMono/Ligatures/Regular/complete/JetBrains Mono Regular Nerd Font Complete Mono.ttf"
   roles:
     - ctorgalson.nerdfonts
-    - particledecay.asdf
+    - interdependence.asdf
     - base
     - shell
     - tmux

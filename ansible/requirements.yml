@@ -3,6 +3,6 @@ collections:
   - name: community.general
 
 roles:
-  - src: particledecay.asdf
+  - src: interdependence.asdf
   - src: gantsign.visual-studio-code
   - src: ctorgalson.nerdfonts

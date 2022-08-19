@@ -1,0 +1,8 @@
+---
+- name: Clone bash-it repo
+  git:
+    repo: https://github.com/Bash-it/bash-it.git
+    dest: ~/.bash_it
+
+- name: Install bash-it
+  ansible.builtin.shell: ~/.bash_it/install.sh

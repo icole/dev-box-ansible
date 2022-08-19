@@ -1,12 +1,13 @@
 ---
-- name: Install Fish shell
-  ansible.builtin.package:
-    name: fish
-  become: true
-
 - name: Change default shell
   ansible.builtin.shell: chsh -s /usr/bin/{{ default_shell|quote }}
   become: true
+
+- include_tasks: bash.yml
+  when: default_shell == "bash"
+
+- include_tasks: fish.yml
+  when: default_shell == "fish"
 
 - name: Install Oh My Posh
   ansible.builtin.shell: |
@@ -21,23 +22,3 @@
     unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
     chmod u+rw ~/.poshthemes/*.json
     rm ~/.poshthemes/themes.zip
-
-- name: Ensure fish config directory exists
-  file:
-    path: "~/.config/fish"
-    state: directory
-
-- name: Set fish config file
-  template:
-    src: "config.fish.j2"
-    dest: "~/.config/fish/config.fish"
-
-- name: Install fisher plugin manager
-  ansible.builtin.shell: curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-  args:
-    executable: /usr/bin/fish
-
-- name: Install asdf fish plugin
-  ansible.builtin.shell: fisher install rstacruz/fish-asdf
-  args:
-    executable: /usr/bin/fish

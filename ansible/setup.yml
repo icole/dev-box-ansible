@@ -1,7 +1,7 @@
 - hosts: all
   vars:
     asdf_version: "v0.8.1"
-    default_shell: "fish"
+    default_shell: "bash"
     nf_user: "icole"
     nf_group: "wheel"
     nf_single_fonts:
@@ -17,5 +17,3 @@
     - base
     - shell
     - tmux
-    - signal
-    - vim

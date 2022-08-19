@@ -1,0 +1,25 @@
+---
+- name: Install Fish shell
+  ansible.builtin.package:
+    name: fish
+  become: true
+
+- name: Ensure fish config directory exists
+  file:
+    path: "~/.config/fish"
+    state: directory
+
+- name: Set fish config file
+  template:
+    src: "config.fish.j2"
+    dest: "~/.config/fish/config.fish"
+
+- name: Install fisher plugin manager
+  ansible.builtin.shell: curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+  args:
+    executable: /usr/bin/fish
+
+- name: Install asdf fish plugin
+  ansible.builtin.shell: fisher install rstacruz/fish-asdf
+  args:
+    executable: /usr/bin/fish

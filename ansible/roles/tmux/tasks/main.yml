@@ -1,3 +1,4 @@
+---
 - name: Install TMUX
   ansible.builtin.package:
     name: tmux

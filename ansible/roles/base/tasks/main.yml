@@ -10,9 +10,9 @@
       - zlib-devel
       - gdbm-devel
       - ncurses-devel
-      - ripgrep
       - cmake
       - libtool
+      - ripgrep
       - fd-find
   become: true
 

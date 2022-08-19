@@ -6,8 +6,8 @@ echo "Determine Linux Distro"
 current_distro=$(awk -F= '$1 == "ID" { print $2 }' /etc/*-release)
 echo "$current_distro"
 
-if [ "$current_distro" == "fedora" ]; then
-	echo "Detected Fedora platform"
+if [[ $current_distro =~ "rhel" || $current_distro =~ "fedora" ]]; then
+	echo "Detected Fedora/RHEL platform"
 
 	# Download and install git
 	if [[ ! -x /usr/local/bin/git ]]; then

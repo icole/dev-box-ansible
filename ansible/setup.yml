@@ -1,5 +1,6 @@
 - hosts: all
   vars:
+    default_shell: "bash"
     asdf_version: "v0.10.0"
     asdf_plugins:
       - name: nodejs
@@ -12,6 +13,8 @@
       - name: yarn
         state: present
       - name: pnpm
+        state: present
+      - name: dotnet-core
         state: present
     asdf_packages:
       - name: nodejs
@@ -27,6 +30,9 @@
         state: present
         version: latest
       - name: pnpm
+        state: present
+        version: latest
+      - name: dotnet-core
         state: present
         version: latest
     nf_user: "icole"

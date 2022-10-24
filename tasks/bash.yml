@@ -4,8 +4,13 @@
     repo: https://github.com/Bash-it/bash-it.git
     dest: ~/.bash_it
 
+- name: Determine if basj-it is installed
+  local_action: stat path=~/.bashrc.bak
+  register: bashrc
+
 - name: Install bash-it
   ansible.builtin.shell: ~/.bash_it/install.sh
+  when: not bashrc.stat.exists
 
 - name: Change default shell to bash
   ansible.builtin.shell: chsh -s /usr/bin/bash

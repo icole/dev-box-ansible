@@ -3,6 +3,5 @@ collections:
   - name: community.general
 
 roles:
-  - src: interdependence.asdf
   - src: gantsign.visual-studio-code
   - src: ctorgalson.nerdfonts

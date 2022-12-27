@@ -1,12 +1,5 @@
 #! /bin/bash
-#set -e
+ansible-galaxy install -r "./requirements.yml"
+ansible-galaxy collection install -r "./requirements.yml"
 
-#. lib-ui.sh
-#. lib-misc.sh
-
-ANSIBLE_CONFIGURATION_DIRECTORY="$HOME/Workspace/dev-box-ansible/ansible"
-
-ansible-galaxy install -r "$ANSIBLE_CONFIGURATION_DIRECTORY/requirements.yml"
-ansible-galaxy collection install -r "$ANSIBLE_CONFIGURATION_DIRECTORY/requirements.yml"
-
-ansible-playbook -i "localhost," "$ANSIBLE_CONFIGURATION_DIRECTORY/setup.yml" --ask-become-pass --connection=local
+ansible-playbook -i "localhost," "./setup.yml" --ask-become-pass --connection=local

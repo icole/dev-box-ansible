@@ -3,4 +3,3 @@
   ansible.builtin.package:
     name: vim
     state: latest
-  become: true

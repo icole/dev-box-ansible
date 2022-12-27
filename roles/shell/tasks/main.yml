@@ -1,0 +1,10 @@
+---
+- name: Change default shell
+  ansible.builtin.shell: chsh -s /usr/bin/{{ default_shell|quote }}
+  become: true
+
+- include_tasks: bash.yml
+  when: default_shell == "bash"
+
+- include_tasks: fish.yml
+  when: default_shell == "fish"

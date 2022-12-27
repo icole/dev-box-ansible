@@ -19,27 +19,26 @@
     name:
       - openssl-devel
       - util-linux-user
-  become: true
   when: ansible_facts['os_family'] == 'RedHat'
+  become: true
 
 - name: openSUSE base packages
   ansible.builtin.package:
     name:
       - libopenssl-devel
-  become: true
   when: ansible_facts['os_family'] == 'Suse'
+  become: true
 
 - name: openSUSE build essentials
   zypper:
     name: devel_basis
     type: pattern
     state: present
-  become: true
   when: ansible_facts['os_family'] == 'Suse'
-
-- name: Add the flathub flatpak repository remote to the user installation
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
   become: true
+# - name: Add the flathub flatpak repository remote to the user installation
+#   community.general.flatpak_remote:
+#     name: flathub
+#     state: present
+#     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+#   become: true

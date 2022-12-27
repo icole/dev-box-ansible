@@ -1,3 +1,0 @@
-pip_directory: /usr/lib/python2.7/site-packages
-powerline_directory: /usr/share/tmux
-package_user: true

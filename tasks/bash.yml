@@ -6,3 +6,7 @@
 
 - name: Install bash-it
   ansible.builtin.shell: ~/.bash_it/install.sh
+
+- name: Change default shell to bash
+  ansible.builtin.shell: chsh -s /usr/bin/bash
+  become: true

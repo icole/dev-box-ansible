@@ -23,3 +23,7 @@
   ansible.builtin.shell: fisher install rstacruz/fish-asdf
   args:
     executable: /usr/bin/fish
+
+- name: Change default shell to fish
+  ansible.builtin.shell: chsh -s /usr/bin/fish
+  become: true

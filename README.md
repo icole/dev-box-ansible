@@ -8,3 +8,15 @@
 ## TODO
 - [ ] Fix `ripgrep` and `fd` install on RHEL 9
 - [ ] Only install bash-it when necessary
+
+Mac apps to add:
+- [ ] Postico 2
+- [ ] Tuple
+- [ ] Speechify
+- [ ] Postman
+- [ ] Ice
+- [ ] Figma
+- [ ] CleanShot X
+- [ ] gpg-suite
+- [ ] finicky
+- [ ] Alfred

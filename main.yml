@@ -1,0 +1,15 @@
+- hosts: localhost
+  vars:
+    homebrew_cask_apps:
+      - docker
+      - firefox
+      - proton-mail-bridge
+      - fantastical
+      - jordanbaird-ice
+      - signal
+  roles:
+    - base
+    - geerlingguy.mac.homebrew
+  tasks:
+    - import_tasks: tasks/zsh.yml
+    - include_tasks: ./tasks/fonts.yml

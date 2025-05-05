@@ -1,7 +1,8 @@
 ---
+roles:
+  - name: elliotweiser.osx-command-line-tools
+  - src: https://github.com/kaineer/ansible-role-nerdfonts
+
 collections:
   - name: community.general
-
-roles:
-  - src: gantsign.visual-studio-code
-  - src: ctorgalson.nerdfonts
+  - name: geerlingguy.mac

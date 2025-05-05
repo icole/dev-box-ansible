@@ -1,0 +1,16 @@
+- name: Install Nerd Fonts
+  include_role:
+    name: "ctorgalson.nerdfonts"
+  vars:
+    nf_user: "icole"
+    nf_linux_fonts_dir: "/home/icole/.fonts"
+    nf_overwrite: false
+    nf_single_fonts:
+      - "CascadiaCode/CaskaydiaCoveNerdFont-Bold.ttf"
+      - "CascadiaCode/CaskaydiaCoveNerdFont-BoldItalic.ttf"
+      - "CascadiaCode/CaskaydiaCoveNerdFont-Italic.ttf"
+      - "CascadiaCode/CaskaydiaCoveNerdFont-Regular.ttf"
+      - "JetBrainsMono/Ligatures/BoldItalic/JetBrainsMonoNerdFontMono-BoldItalic.ttf"
+      - "JetBrainsMono/Ligatures/Bold/JetBrainsMonoNerdFontMono-Bold.ttf"
+      - "JetBrainsMono/Ligatures/Italic/JetBrainsMonoNerdFontMono-Italic.ttf"
+      - "JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFontMono-Regular.ttf"

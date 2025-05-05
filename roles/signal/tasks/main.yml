@@ -12,7 +12,3 @@
     auto_import_keys: yes
     state: present
   when: ansible_facts['os_family'] == 'Suse'
-
-- name: Install Signal Desktop
-  ansible.builtin.package:
-    name: signal-desktop

@@ -1,15 +1,6 @@
-- name: Install ZSH
-  ansible.builtin.package:
-    name: zsh
-  become: yes
-
-- name: Change default shell to zsh
-  shell: chsh -s /usr/bin/zsh
-  become: true
-
 - name: Check that oh-my-zsh is installed
   stat:
-    path: /home/icole/.oh-my-zsh
+    path: $HOME/.oh-my-zsh
   register: oh_my_stats
 
 - name: Install Oh-My-Zsh
